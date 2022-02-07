@@ -1,10 +1,10 @@
-package com.florian935.cloud.kafka.publisher;
+package com.florian935.cloud.kafka.producer;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class PublisherApplicationTests {
+class ProducerApplicationTests {
 
 	@Test
 	void contextLoads() {

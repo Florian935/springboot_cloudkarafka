@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.florian935.cloud.kafka</groupId>
-	<artifactId>publisher</artifactId>
+	<artifactId>producer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>publisher</name>
-	<description>Demo project for Spring Cloud with Kafka (publisher)</description>
+	<name>producer</name>
+	<description>Demo project for Spring Cloud with Kafka (producer)</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

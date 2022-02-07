@@ -1,4 +1,4 @@
-package com.florian935.cloud.kafka.producer;
+package com.florian935.cloud.kafka.producer.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -11,7 +11,7 @@ import static lombok.AccessLevel.PRIVATE;
 @Service
 @FieldDefaults(level = PRIVATE, makeFinal = true)
 @RequiredArgsConstructor
-public class ProducerProducer {
+public class ProductProducer {
 
     KafkaTemplate<String, Object> kafkaTemplate;
 

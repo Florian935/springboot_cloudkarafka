@@ -1,6 +1,6 @@
 package com.florian935.cloud.kafka.producer.controller;
 
-import com.florian935.cloud.kafka.producer.producer.ProducerProducer;
+import com.florian935.cloud.kafka.producer.producer.ProductProducer;
 import com.florian935.cloud.kafka.producer.domain.Product;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -16,14 +16,14 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @FieldDefaults(makeFinal = true, level = PRIVATE)
 public class ProductController {
 
-    ProducerProducer producerProducer;
+    ProductProducer productProducer;
 
     @PostMapping(consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
     @ResponseBody
     @ResponseStatus(ACCEPTED)
     Product produce(@RequestBody Product product) {
 
-        producerProducer.send(product);
+        productProducer.send(product);
 
         return product;
     }

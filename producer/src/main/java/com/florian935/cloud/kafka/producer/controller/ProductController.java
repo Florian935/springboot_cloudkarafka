@@ -18,12 +18,12 @@ public class ProductController {
 
     ProductProducer productProducer;
 
-    @PostMapping(consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/{action}", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
     @ResponseBody
     @ResponseStatus(ACCEPTED)
-    Product produce(@RequestBody Product product) {
+    Product produce(@PathVariable String action, @RequestBody Product product) {
 
-        productProducer.send(product);
+        productProducer.send(product, action);
 
         return product;
     }

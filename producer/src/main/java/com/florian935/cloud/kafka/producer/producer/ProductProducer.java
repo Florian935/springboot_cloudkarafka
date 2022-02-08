@@ -15,9 +15,27 @@ public class ProductProducer {
 
     KafkaTemplate<String, Object> kafkaTemplate;
 
-    public void send(Product product) {
+    public void send(Product product, String action) {
 
-        this.kafkaTemplate.send("gr62pzpd-demo", product);
-        System.out.println("Sent sample message [" + product + "] to gr62pzpd-demo");
+        switch (action) {
+            case "create" -> {
+                kafkaTemplate.send("YOUR_TOPIC_NAME", 0, "create", product);
+                System.out.println("[CREATE] Sent sample message [" + product + "] to OUR_TOPIC_NAME");
+            }
+            case "delete" -> {
+                kafkaTemplate.send("OUR_TOPIC_NAME", 1, "delete", product);
+                System.out.println("[DELETE] Sent sample message [" + product + "] to OUR_TOPIC_NAME");
+            }
+            case "update" -> {
+                kafkaTemplate.send("OUR_TOPIC_NAME", 2, "update", product);
+                System.out.println("[UPDATE] Sent sample message [" + product + "] to OUR_TOPIC_NAME");
+            }
+            default -> {
+                kafkaTemplate.send("OUR_TOPIC_NAME", 0, "fetch", product);
+                System.out.println("[FETCH] Sent sample message [" + product + "] to OUR_TOPIC_NAME");
+            }
+        }
+
+
     }
 }

@@ -30,9 +30,13 @@ public class ProductConsumerConfig {
 
     @Bean
     public ConcurrentKafkaListenerContainerFactory<String, Product> productKafkaListenerContainerFactory() {
+
         ConcurrentKafkaListenerContainerFactory<String, Product> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(productConsumerFactory());
         factory.setConcurrency(kafkaProperties.getListener().getConcurrency());
+        // FILTER ON KEY -> Return true if the record should be discarded.
+//        factory.setAckDiscarded(true);
+        //factory.setRecordFilterStrategy(record -> !record.key().contains("create"));
 
         return factory;
     }
